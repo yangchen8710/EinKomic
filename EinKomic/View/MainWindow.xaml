@@ -9,19 +9,19 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="labelMessage" Content= "{Binding Path=MainFormMessage}" HorizontalAlignment="Left" Margin="241,432,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="461"/>
-        <TextBox x:Name="textBoxInputPath" HorizontalAlignment="Left" Height="23" Margin="130,11,0,0" TextWrapping="Wrap" Text="{Binding Path=InputPath}" VerticalAlignment="Top" Width="602" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxOutputPath" HorizontalAlignment="Left" Height="23" Margin="130,39,0,0" TextWrapping="Wrap" Text="{Binding Path=OutputPath}" VerticalAlignment="Top" Width="602" Grid.ColumnSpan="2"/>
-        <Button x:Name="buttonInputPath" Content="Select Input Path" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="115" Click="button_input_path_Click" Height="24"/>
-        <Button x:Name="buttonOutputPath" Content="Select Output Path" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="115" Click="button_output_path_Click" Height="24"/>
-        <ComboBox IsEnabled="{Binding Path=SinglePageCut}" x:Name="comboBoxFlipDirection" HorizontalAlignment="Left" Margin="130,67,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.346,-0.25" Height="24" SelectionChanged="comboBox_SelectionChanged" SelectedIndex="{Binding Path=FlipDirection}">
+        <Label x:Name="labelMessage" Content= "{Binding Path=MainFormMessage}" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="722" Height="45" RenderTransformOrigin="0.502,0.539"/>
+        <TextBox x:Name="textBoxInputPath" HorizontalAlignment="Left" Height="23" Margin="130,11,0,0" TextWrapping="Wrap" Text="{Binding Path=InputPath}" VerticalAlignment="Top" Width="602"/>
+        <TextBox x:Name="textBoxOutputPath" HorizontalAlignment="Left" Height="23" Margin="130,39,0,0" TextWrapping="Wrap" Text="{Binding Path=OutputPath}" VerticalAlignment="Top" Width="602"/>
+        <Button x:Name="buttonInputPath" Content="Select Input Path" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="115" Command="{Binding SetInputPathView}" Height="24"/>
+        <Button x:Name="buttonOutputPath" Content="Select Output Path" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="115" Command="{Binding SetOutputPathView}" Height="24"/>
+        <ComboBox IsEnabled="{Binding Path=SinglePageCut}" x:Name="comboBoxFlipDirection" HorizontalAlignment="Left" Margin="130,67,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.346,-0.25" Height="24" SelectedIndex="{Binding Path=FlipDirection}">
             <ComboBoxItem IsSelected="True">Right to Left</ComboBoxItem>
             <ComboBoxItem >Left to Right</ComboBoxItem>
         </ComboBox>
         <CheckBox x:Name="checkBoxSinglePage" Content="Single page cut" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=SinglePageCut}"/>
-        
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="320,292,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+
 
     </Grid>
 </Window>

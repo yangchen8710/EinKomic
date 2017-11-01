@@ -3,11 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EinKomic.Model;
 
 namespace EinKomic.ViewModel
 {
     class MainViewModel : ViewModelBase
     {
+        public MainViewModel()
+        {
+            this.SetInputPathView = new CommandBase(SetInputPathViewModel);
+            this.SetOutputPathView = new CommandBase(SetOutputPathViewModel);
+        }
+        public CommandBase SetInputPathView { get; set; }
+        private void SetInputPathViewModel(object obj)
+        {
+            String path;
+            if (UtilHelper.GetFolder(out path))
+                this.InputPath = path;
+        }
+
+        public CommandBase SetOutputPathView { get; set; }
+        private void SetOutputPathViewModel(object obj)
+        {
+            String path;
+            if (UtilHelper.GetFolder(out path))
+                this.OutputPath = path;
+        }
+
         private string _inputPath;
         public string InputPath
         {
@@ -60,6 +82,7 @@ namespace EinKomic.ViewModel
             set
             {
                 _flipDirection = value;
+                MainFormMessage = "FlipDirection:" + _flipDirection.ToString();
                 OnPropertyChanged("FlipDirection");
             }
         }
@@ -74,7 +97,7 @@ namespace EinKomic.ViewModel
             set
             {
                 _singlePageCut = value;
-                MainFormMessage = "SinglePageCut:" + _singlePageCut.ToString();
+                
                 OnPropertyChanged("SinglePageCut");
             }
         }

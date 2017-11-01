@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Model\Const.cs" />
     <Compile Include="Model\CvHelper.cs" />
+    <Compile Include="Model\UtilHelper.cs" />
     <Compile Include="ViewModel\CommandBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />

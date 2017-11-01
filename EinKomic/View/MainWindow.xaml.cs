@@ -20,8 +20,10 @@ namespace EinKomic
             InitializeComponent();
             mvm = new MainViewModel();
             DataContext = mvm;
+            mvm.MainFormMessage = "Welcome.";
             mat = CvInvoke.Imread(@"D:\pic\test1.png", Emgu.CV.CvEnum.ImreadModes.Grayscale);
             
+
             CvHelper cvHelper = new CvHelper();
             Mat resMat1 = new Mat();
             Mat resMat2 = new Mat();
@@ -33,44 +35,13 @@ namespace EinKomic
             TimeSpan timeSpan = stopwatch.Elapsed;
             Console.WriteLine("Caculate Trim Rect:" + timeSpan.TotalMilliseconds + "ms");
 
-            CvInvoke.Imshow("akx", res);
+            //CvInvoke.Imshow("akx", res);
             
 
         }
 
-
-
-        private void button_input_path_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
-            dialog.Description = "Please Select Folder";
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (string.IsNullOrEmpty(dialog.SelectedPath))
-                {
-                    return;
-                }
-                mvm.InputPath = dialog.SelectedPath;
-            }
-        }
-
-        private void button_output_path_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
-            dialog.Description = "Please Select Folder";
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (string.IsNullOrEmpty(dialog.SelectedPath))
-                {
-                    return;
-                }
-                mvm.OutputPath = dialog.SelectedPath;
-            }
-        }
-
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
